@@ -1,4 +1,6 @@
 from random import randint, sample
+from os import supports_effective_ids, terminal_size
+
 tablero =[
     [' ','1','2','3','4','5','6','7','8'],
     ['1',' ',' ',' ',' ',' ',' ',' ',' '],
@@ -10,6 +12,7 @@ tablero =[
     ['7',' ',' ',' ',' ',' ',' ',' ',' '],
     ['8',' ',' ',' ',' ',' ',' ',' ',' '],
 ]
+
 #dibujo de las fichas
 REY_BLANCO = chr(0x2654)
 REINA_BLANCO = chr(0x2655)
@@ -61,12 +64,16 @@ PEÓN_NEGRO = chr(0x265F)
 (tablero[2])[7] = PEÓN_NEGRO
 (tablero[2])[8] = PEÓN_NEGRO
 #printeo el tablero
-for i in range(9):
-    print(tablero[i])
+def print_tablero(tablero):
+    for i in range(9):
+        print(tablero[i])
+        
+print_tablero(tablero)
+        
     
 def movimientos_ficha(tablero):
     while True:
-        ficha = int(input("Elige la ficha que deseas mover seleccionando sus coordenadas por separado:")) #se lo pido al usuario
+        ficha = input("Elige la ficha que deseas mover seleccionando sus coordenadas por separado:") #se lo pido al usuario
         ficha = ficha.split() # Devuelve la variable ficha usando como delimitador la cadena delimitador. Si no se especifica el delimitador utiliza por defecto el espacio en blanco
         if len(ficha) == 2: #'len' va a contar la cantidad de numeros introducidos y si es == 2, entonces seguira el bucle
             filaI = ficha[0]
@@ -80,7 +87,7 @@ def movimientos_ficha(tablero):
                 if filaI >= 0 and filaI < 8 and columnaI >= 0 and columnaI < 8:
                     break
     while True:
-        recorrido = int(input("Elige las coordenadas a las que deseas mover tu ficha:"))
+        recorrido = input("Elige las coordenadas a las que deseas mover tu ficha:")
         recorrido = recorrido.split()
         if len(recorrido) == 2:
             filaE = recorrido[0]
@@ -95,3 +102,4 @@ def movimientos_ficha(tablero):
                     (tablero[filaE])[columnaE] = tablero[filaI][columnaI]
                     (tablero[filaI][columnaI]) = " "
                     break
+            
