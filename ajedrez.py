@@ -110,10 +110,10 @@ f = open(fichero, "a+", encoding="utf-8")
  
 print_tablero(tablero)
 continuar = "si"
-while continuar != "adios": #Bucle para poder seguir jugando hasta que quieras
+while continuar != "no": #Bucle para poder seguir jugando hasta que quieras
     print("Sigamos pues...")
     movimientos_ficha(tablero)
     print_tablero(tablero)
-    continuar = input("Si quieres acabar la partida, escribe 'adios':")  
+    continuar = input("¿Quieres seguir jugando? ")  
 else:
     print("Gracias por jugar, has sido un digno rival, HASTA OTRA!!")          
