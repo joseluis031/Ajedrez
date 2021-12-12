@@ -82,9 +82,10 @@ def movimientos_ficha(tablero):
                 filaI = int(filaI)
                 columnaI = int(columnaI)
             except:
+                print("Elije unas coordenadas lógicas y posibles")
                 pass
             else:
-                if filaI >= 0 and filaI < 8 and columnaI >= 0 and columnaI < 8:
+                if filaI > 0 and filaI < 9 and columnaI > 0 and columnaI < 9:
                     break
     while True:
         recorrido = input("Elige las coordenadas a las que deseas mover tu ficha:")
@@ -96,18 +97,20 @@ def movimientos_ficha(tablero):
                 filaE = int(filaE)
                 columnaE = int(columnaE)
             except:
+                print("Elije unas coordenadas lógicas y posibles")
                 pass
             else:
-                if filaE >=0 and filaE < 8 and columnaE >=0 and columnaE < 8 and recorrido != ficha:
+                if filaE >0 and filaE < 9 and columnaE >0 and columnaE < 9 and recorrido != ficha:
                     (tablero[filaE])[columnaE] = tablero[filaI][columnaI]
                     (tablero[filaI][columnaI]) = " "
                     break
-fichero = input("Elige un nombre para el fichero: ")
+                
+fichero = input("Elige un nombre para el fichero: ") #Creo el fichero
 f = open(fichero, "a+", encoding="utf-8")
  
 print_tablero(tablero)
 continuar = "si"
-while continuar != "adios":
+while continuar != "adios": #Bucle para poder seguir jugando hasta que quieras
     print("Sigamos pues...")
     movimientos_ficha(tablero)
     print_tablero(tablero)
