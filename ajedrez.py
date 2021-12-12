@@ -102,4 +102,15 @@ def movimientos_ficha(tablero):
                     (tablero[filaE])[columnaE] = tablero[filaI][columnaI]
                     (tablero[filaI][columnaI]) = " "
                     break
-            
+fichero = input("Elige un nombre para el fichero: ")
+f = open(fichero, "a+", encoding="utf-8")
+ 
+print_tablero(tablero)
+continuar = "si"
+while continuar != "adios":
+    print("Sigamos pues...")
+    movimientos_ficha(tablero)
+    print_tablero(tablero)
+    continuar = input("Si quieres acabar la partida, escribe 'adios':")  
+else:
+    print("Gracias por jugar, has sido un digno rival, HASTA OTRA!!")          
